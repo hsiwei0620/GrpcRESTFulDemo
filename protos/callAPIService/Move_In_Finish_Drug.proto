@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package callAPIService;
+
+message Move_In_Finish_Drug_Request{    
+    //send aplrsvpr used
+    string lotid = 1;               //EXE_lot_id
+    string bayid = 2;
+    string resveqptid = 3;
+    string prepstartdate = 4;
+    string prependdate = 5;
+    string preptype = 6;
+    string needorderflag = 7;
+
+    //send apcmtlst used
+    string empno = 8; 
+    string mtrlproductid = 9;       //EXE_mtrl_product_id
+    string mtrllotid = 10;
+    string mtrlqty = 11;            //藥包總重
+    string pershtqty = 12;          //1
+    string shtcnt = 13;             //首數
+    string expireday = 14;          //expire date
+    string usemtrlcnt = 15;         //apcmtlst.iary.iary2_cnt
+    repeated usemtrl iary2 = 16;    //apcmtlst.iary.iary2 structure
+
+}
+
+message usemtrl{
+    string usemtrlproductid = 1;
+    string usemtrllotid =2;
+    string useqty = 3; 
+    string useseqno =4;
+    string lotid =5;
+}
+
+message Move_In_Finish_Drug_Reply{
+    string rtncode = 1;
+    string rtnmesg = 2;
+    string druginfocnt = 3;
+    repeated druginfo oary = 4;
+}
+
+message druginfo{
+    string mtrlproductid = 1;
+    string mtrlproductdsc = 2;
+    string mtrlcate = 3;
+    string planqty = 4;
+    string mtrlunit = 5;
+    string spcfymtrllotid = 6;
+    string ext_1 = 7;    
+    string ext_2 = 8;
+    string ext_3 = 9;
+    string ext_4 = 10;
+    string ext_5 = 11;
+    string parentid = 12;    
+}

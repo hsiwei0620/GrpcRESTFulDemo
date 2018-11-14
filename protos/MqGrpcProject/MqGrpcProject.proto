@@ -1,0 +1,42 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// dotnet run -f netcoreapp2.1
+//  修改後要下這個指令
+//  %UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\protoc.exe -I../../protos --csharp_out MqGrpcs --grpc_out MqGrpcs ../../protos/MqGrpcProject.proto --plugin=protoc-gen-grpc=%UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\grpc_csharp_plugin.exe
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.MqGrpcProject";
+option java_outer_classname = "MqGrpcProjectProto";
+option objc_class_prefix = "HLW";
+
+import "APIMTLSTio.proto";
+import "APISHTEQio.proto";
+import "APLPRDBMio.proto";
+import "APLRSVPRio.proto";
+import "APMEQRSVio.proto";
+import "APCMTLSTio.proto";
+
+package MqGrpcProject;
+
+// The greeting service definition.
+service MqGrpcs {
+  // Sends a greeting
+  rpc APMEQRSV_Send (APMEQRSV_Request) returns (APMEQRSV_Reply) {}
+  rpc APIMTLST_Send (APIMTLST_Request) returns (APIMTLST_Reply) {}
+  rpc APISHTEQ_Send (APISHTEQ_Request) returns (APISHTEQ_Reply) {}
+  rpc APLPRDBM_Send (APLPRDBM_Request) returns (APLPRDBM_Reply) {}
+  rpc APLRSVPR_Send (APLRSVPR_Request) returns (APLRSVPR_Reply) {} 
+  rpc APCMTLST_Send (APCMTLST_Request) returns (APCMTLST_Reply) {} 
+}

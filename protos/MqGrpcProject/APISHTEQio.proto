@@ -1,0 +1,72 @@
+//  dotnet run -f netcoreapp2.1
+//  修改後要下這個指令
+//  %UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\protoc.exe -I../../protos --csharp_out MqGrpcs --grpc_out MqGrpcs ../../protos/APISHTEQio.proto --plugin=protoc-gen-grpc=%UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\grpc_csharp_plugin.exe
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.MqGrpcProject";
+option java_outer_classname = "MqGrpcProjectProto";
+option objc_class_prefix = "HLW";
+
+package MqGrpcProject;
+
+message APISHTEQ_Request{
+    string eqptid = 1;
+    string sgrid = 2;
+    string nxopeno = 3;
+    string lotid = 4;
+    string serverip = 5;
+}
+
+
+message APISHTEQ_Reply{
+    string trxid = 1;
+    string typeid = 2;
+    string rtncode = 3;
+    string rtnmesg = 4;
+    string eqptid = 5;
+    string eqptdsc = 6;
+    string eqptcate = 7;
+    string recipeid = 8;
+    string eqptstat = 9;
+    string eqptstatdsc = 10;
+    string eqptmode = 11;
+    string sgrcnt = 12;
+    repeated APISHTEQo_a1 oary1 = 13;
+    string errmsg = 14;
+}
+
+message APISHTEQo_a1{
+    string sgrid = 1;
+    string shtarycnt = 2;
+    repeated APISHTEQo_a2 oary2 = 3;
+}
+
+message APISHTEQo_a2{
+    string shtid = 1;
+    string shtstat = 2;
+    string lotid = 3;
+    string spltid = 4;
+    string nxroutecate = 5;
+    string nxrouteid = 6;
+    string nxroutever = 7;
+    string cropeno = 8;
+    string nxopeno = 9;
+    string nxopeid = 10;
+    string nxopever = 11;
+    string nxopedsc = 12;
+    string nxpeplvl = 13;
+    string nxrecipeid = 14;
+    string nxprocid = 15;
+    string productid = 16;
+    string eccode = 17;
+    string unit = 18;
+    string sgrid = 19;
+    string shtcnt = 20;
+    string moveinflg = 21;
+    string slotno = 22;
+    string showflag = 23;
+    string fakeid = 24;
+    string erplotno = 25;
+}

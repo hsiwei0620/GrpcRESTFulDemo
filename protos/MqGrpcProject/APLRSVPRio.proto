@@ -1,0 +1,66 @@
+//  dotnet run -f netcoreapp2.1
+//  修改後要下這個指令
+//  %UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\protoc.exe -I../../protos --csharp_out MqGrpcs --grpc_out MqGrpcs ../../protos/APLRSVPRio.proto --plugin=protoc-gen-grpc=%UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\grpc_csharp_plugin.exe
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.MqGrpcProject";
+option java_outer_classname = "MqGrpcProjectProto";
+option objc_class_prefix = "HLW";
+
+package MqGrpcProject;
+
+message APLRSVPR_Request{
+    string bayid = 1;
+    string resveqptid = 2;
+    string resvdate = 3;
+    string resvshiftseq = 4;
+    string prepstartdate = 5;
+    string prependdate = 6;
+    string preptype = 7;
+    string lotid = 8;
+    string onlyoutsideflg = 9;
+    string needorderflg = 10;
+    string serverip = 11;
+}
+
+message APLRSVPR_Reply{
+    string trxid = 1;
+    string typeid = 2;
+    string rtncode = 3;
+    string rtnmesg = 4;
+    string lotarycnt = 5;
+    repeated APLRSVPRo_a oary = 6;
+    string errmsg = 7;
+}
+
+message APLRSVPRo_a{
+    string lotid = 1;
+    string lotstat = 2;
+    string nxopeno = 3;
+    string mtrlproductid = 4;
+    string preptype = 5;
+    string prepstat = 6;
+    string prepdate = 7;
+    string prepseqno = 8;
+    string resvdate = 9;
+    string resvshiftseq = 10;
+    string routeid = 11;
+    string routever = 12;
+    string claimdate = 13;
+    string claimtime = 14;
+    string claimuser = 15;
+    string nxopeid = 16;
+    string nxopever = 17;
+    string spltid = 18;
+    string resveqptid = 19;
+    string shtcnt = 20;
+    string readyshtcnt = 21;
+    string productid = 22;
+    string eccode = 23;
+    string mainrouteid = 24;
+    string mainroutever = 25;
+    string cropeno = 26;
+    string lineid = 27;
+}

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyTitle>MqGrpcsServer</AssemblyTitle>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>MqGrpcsServer</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>MqGrpcsServer</PackageId>
+  </PropertyGroup>
+  
+
+  <ItemGroup>
+    <ProjectReference Include="..\MqGrpcs\MqGrpcs.csproj" />
+    <PackageReference Include="Experimental.System.Messaging" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.0" />
+  </ItemGroup>
+</Project>

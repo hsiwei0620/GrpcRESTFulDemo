@@ -1,0 +1,77 @@
+//  dotnet run -f netcoreapp2.1
+//  修改後要下這個指令
+//  %UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\protoc.exe -I../../protos --csharp_out MqGrpcs --grpc_out MqGrpcs ../../protos/APLPRDBMio.proto --plugin=protoc-gen-grpc=%UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\grpc_csharp_plugin.exe
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.MqGrpcProject";
+option java_outer_classname = "MqGrpcProjectProto";
+option objc_class_prefix = "HLW";
+
+package MqGrpcProject;
+
+message APLPRDBM_Request{
+    string productid = 1;
+    string eccode = 2;
+    string routecate = 3;
+    string routeid = 4;
+    string routever = 5;
+    string opeid = 6;
+    string opever = 7;
+    string resveqptid = 8;
+    string lotid = 9;
+    string nxopeno = 10;
+    string userecycleflag = 11;
+    string moveoutlenght = 12;
+    string serverip = 13;
+}
+
+message APLPRDBM_Reply{
+    string trxid = 1;
+    string typeid = 2;
+    string rtncode = 3;
+    string rtnmesg = 4;
+    string productid = 5;
+    string eccode = 6;
+    string routeid = 7;
+    string routever = 8;
+    string bomcnt = 9;
+    repeated APLPRDBMo_a1 oary1 = 10;
+    string speccnt= 11;
+    repeated APLPRDBMo_a oary3 = 12;
+    string errmsg = 13;
+}
+
+message APLPRDBMo_a1{
+	string opeid = 1;
+    string opever = 2;
+    string bomid = 3;
+    string bomdsc = 4;
+    string stageid = 5;
+    string addtinfo1 = 6;
+    string addtinfo2 = 7;
+    string addtinfo3 = 8;
+    string mtrlcnt = 9;
+    repeated APLPRDBMo_a2 oary2 = 10;
+}
+
+message APLPRDBMo_a2{
+    string mtrlproductid = 1;
+    string mtrlproductdsc = 2;
+    string mtrlcate = 3;
+    string planqty = 4;
+    string mtrlunit = 5;
+    string spcfymtrllotid = 6;
+    string ext_1 = 7;    
+    string ext_2 = 8;
+    string ext_3 = 9;
+    string ext_4 = 10;
+    string ext_5 = 11;
+    string parentid = 12;    
+}
+
+message APLPRDBMo_a{
+    string sname = 1;
+    string svalue = 2;
+}

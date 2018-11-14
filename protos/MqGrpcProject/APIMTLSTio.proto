@@ -1,0 +1,78 @@
+//  dotnet run -f netcoreapp2.1
+//  修改後要下這個指令
+//  %UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\protoc.exe -I../../protos --csharp_out MqGrpcs --grpc_out MqGrpcs ../../protos/APIMTLSTio.proto --plugin=protoc-gen-grpc=%UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\grpc_csharp_plugin.exe
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.MqGrpcProject";
+option java_outer_classname = "MqGrpcProjectProto";
+option objc_class_prefix = "HLW";
+
+package MqGrpcProject;
+
+message APIMTLST_Request{
+    string mtrlcate = 1;
+    string mtrlproductid = 2;
+    string mtrllotid = 3;
+    string mtrlstat = 4;
+    string mtrlpositionid = 5;
+    string coneqptid = 6;
+    string salesorder = 7;
+    string lineid = 8;
+    string createdate = 9;
+    string lotid = 10;
+    string nxopeno = 11;
+    string querysubmtrl = 12;
+    string serverip = 13;
+}
+
+message APIMTLST_Reply{
+    string trxid  = 1;
+    string typeid = 2;
+    string rtncode = 3;
+    string rtnmesg = 4;
+    string mtrlcnt = 5;
+    repeated APIMTLSTo_a oary = 6;
+    string mascnt = 7;
+    repeated APIMTLSTo_a2 oary2 = 8;
+    string errmsg = 9;
+}
+
+message APIMTLSTo_a{
+    string mtrlproductid = 1;
+    string mtrllotid = 2;
+    string seqno = 3;
+    string containerid = 4;
+    string mtrlcate = 5;
+    string mtrlstat = 6;
+    string mtrlqty = 7;
+    string chgdate = 8;
+    string chgtime = 9;
+    string chguser = 10;
+    string tareqptid = 11;
+    string eqptid = 12;
+    string eqptmtg = 13;
+    string comment = 14;
+    string mskpositionid = 15;
+    string datarepdatetime = 16;
+    string oosflg = 17;
+    string createdate = 18;
+    string expiredate = 19;
+    string validperiod = 20;
+    string minuseqty = 21;
+    string salesorder = 22;
+    string lineid = 23;
+    string enoughflg = 24;
+    string lotid = 25;
+    string sheets = 26;
+}
+
+message APIMTLSTo_a2{
+    string mtrlprodid = 1;
+    string submtrlprodid = 2;
+    string proportion = 3;
+    string userid = 4;
+    string chgdate = 5;
+    string chgtime = 6;
+}

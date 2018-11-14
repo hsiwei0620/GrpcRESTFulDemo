@@ -1,0 +1,122 @@
+//  dotnet run -f netcoreapp2.1
+//  修改後要下這個指令
+//  %UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\protoc.exe -I../../protos --csharp_out MqGrpcs --grpc_out MqGrpcs ../../protos/APMEQRSVio.proto --plugin=protoc-gen-grpc=%UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\grpc_csharp_plugin.exe
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.MqGrpcProject";
+option java_outer_classname = "MqGrpcProjectProto";
+option objc_class_prefix = "HLW";
+
+package MqGrpcProject;
+
+
+message APMEQRSV_a{
+    string lotid = 1;
+    string nxopeno = 2;
+    string nxopeid = 3;    
+    string nxopever = 4;
+    string spltid = 5;
+    string resveqptid = 6;
+    string lotstat = 7;
+    string resvdate = 8;
+    string resvshiftseq = 9;
+    string resvcomment = 10;
+    string planoptweight = 11;
+    string moveoutweight = 12;
+    string shtcnt = 13;
+    string crshtcnt = 14;
+    string runflag  = 15;
+    string productid = 16;
+    string eccode = 17;
+    string routeid = 18;
+    string routever = 19;
+    string cropeno = 20;
+    string recipeid = 21;
+    string inshtcnt = 22;
+    string stdldtime = 23;
+    string manopetime = 24;
+    string piece = 25;
+    string openoflag = 26; 
+    string key = 27;
+    string type = 28;
+  }
+  // The request message containing the user's name.
+  message APMEQRSV_Request {
+    string actiontype = 1;
+    string fabid = 2;
+    string bayid = 3;
+    string resveqptid = 4;
+    string clmuser = 5;
+    string lotid = 6;
+    string crshtcntflg = 7;
+    string onlyresvflg = 8;
+    string onlyoutusideflg = 9;
+  
+    string lotarycnt = 10;
+    repeated APMEQRSV_a iary = 11;
+    string serverip = 12;
+  }
+  
+  // The response message containing the greetings
+  message APMEQRSV_Reply {
+    //string result = 1;
+    string trxid = 1;
+    string typeid = 2;
+    string rtncode = 3;
+    string rtnmesg = 4;
+    string lotarycnt = 5;
+    repeated APMEQRSVo_a1 oary = 6;
+    string norsvcnt = 7;
+    repeated APMEQRSVo_a2 oary1 = 8;  
+    string errmsg = 9;
+  }
+  message APMEQRSVo_a1{
+    string lotid = 1;
+    string nxopeno =2;
+    string nxopeid = 3;
+    string nxopever = 4;
+    string spltid = 5;
+    string resveqptid = 6; 
+    string lotstat = 7;
+    string resvdate = 8;
+    string resvshiftseq = 9; 
+    string resvcomment = 10;
+    string planoptweight = 11;
+    string moveoutweight = 12;
+    string shtcnt = 13;
+    string crshtcnt = 14;
+    string runflag = 15;
+    string productid = 16;
+    string eccode = 17;
+    string routeid = 18;
+    string routever = 19;
+    string cropeno = 20;
+    string recipeid = 21;
+    string inshtcnt = 22;
+    string stdldtime = 23;
+    string manopetime = 24;
+    string piece = 25;
+    string openoflag =26; 
+    string key = 27;
+    string type = 28;
+  }
+  message APMEQRSVo_a2{
+    string lotid = 1;
+    string productid = 2;
+    string eccode = 3;
+    string planoptweight = 4;
+    string shtcnt = 5;
+    string routeid = 6;
+    string routever = 7;
+    string cropeno = 8;
+    string nxopeno = 9;
+    string nxopeid = 10;
+    string nxopever = 11;
+    string openoflag = 12;
+    string stdldtime = 13;
+    string manopetime = 14;
+    string type = 15;
+    string fiteqpts = 16;
+  }

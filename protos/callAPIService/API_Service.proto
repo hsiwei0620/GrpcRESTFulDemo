@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "Check_Material.proto";
+import "Load_Recipe_Drug.proto";
+import "Move_In_Finish_Drug.proto";
+
+package callAPIService;
+   
+service API_Service {  
+    rpc Check_Material_Send (Check_Material_Request) returns (Check_Material_Reply) {
+        option (google.api.http) = {
+            post : "/v1/MQScanClient/callAPIService/Check_Material_Send"
+            body: "*"
+        };
+    }
+    rpc Load_Recipe_Drug_Send (Load_Recipe_Drug_Request) returns (Load_Recipe_Drug_Reply) {
+        option (google.api.http) = {
+            post : "/v1/MQScanClient/callAPIService/Load_Recipe_Drug_Send"
+            body: "*"
+        };
+    }    
+    rpc Move_In_Finish_Drug_Send (Move_In_Finish_Drug_Request) returns (Move_In_Finish_Drug_Reply) {
+        option (google.api.http) = {
+            post : "/v1/MQScanClient/callAPIService/Move_In_Finish_Drug_Send"
+            body: "*"
+        };
+    }    
+}

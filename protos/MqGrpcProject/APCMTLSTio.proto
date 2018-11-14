@@ -1,0 +1,64 @@
+//  dotnet run -f netcoreapp2.1
+//  修改後要下這個指令
+//  %UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\protoc.exe -I../../protos --csharp_out MqGrpcs --grpc_out MqGrpcs ../../protos/APCMTLSTio.proto --plugin=protoc-gen-grpc=%UserProfile%\.nuget\packages\Grpc.Tools\1.15.0\tools\windows_x64\grpc_csharp_plugin.exe
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.MqGrpcProject";
+option java_outer_classname = "MqGrpcProjectProto";
+option objc_class_prefix = "HLW";
+
+package MqGrpcProject;
+
+message APCMTLST_Request{
+    string clmmtsttyp = 1;
+    string clmdate = 2;
+    string clmtime = 3;
+    string userid = 4;
+    string bomid = 5;
+    string mtrlcnt = 6;
+    repeated APCMTLSTi_a iary = 7;
+    string serverip = 8;
+}
+
+message APCMTLSTi_a{
+    string  mtrlproductid = 1;	        //       Material Product ID
+    string  mtrllotid = 2;				//       Material Lot ID
+    string  seqno = 3;				    //       Sequence NO
+    string  containerid =4;				//       M1.00 Container ID
+    string  mtrlstat = 5;				//       Material Status
+    string  mtrlqty = 6;				//       Material Lot Count
+    string  pershtqty = 7;
+    string  shtcnt = 8;
+    string  comment = 9;				//       Comment
+    string  scprsncate = 10;		    //       Scrap Reason Code Category
+    string  scprsncode = 11;		    //       Scrap Reason code
+    string  deptcode = 12;				//       Department Code
+    string  scpqty = 13;				//       Scrap Quantity
+    string  tareqptid = 14;
+    string  createdate = 15;
+    string  expiredate = 16;
+    string  validperiod = 17;
+    string  minuseqty = 18;			    //       Hsiwei Add min use qty
+    string  flag = 19;                  //       flag=P 配藥,flag=C 切膠
+    string  salesorder = 20;
+    string  lineid = 21;
+    string  iary2cnt = 22;				//       Material  
+    repeated  APCMTLSTi_a2 iary2 = 23;
+}
+
+message APCMTLSTi_a2{
+    string usemtrlproductid  = 1;
+    string usemtrllotid = 2;
+    string useqty = 3;
+    string useseqno = 4;
+    string lotid = 5;
+}
+message APCMTLST_Reply{
+    string trxid = 1;
+    string typeid = 2;
+    string rtncode = 3;
+    string rtnmesg = 4;
+    string errmsg = 5;
+}

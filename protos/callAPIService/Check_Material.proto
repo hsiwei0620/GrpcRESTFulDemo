@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package callAPIService;
+
+message Check_Material_Request{
+    string eqptid = 1;
+    string lotid = 2;
+    string productid =3;
+    string engtp = 4;    
+    string acttype = 5;
+    string mtrlcnt = 6;
+    repeated material_a iary = 7;
+    string bomcnt = 8;
+    repeated bom_a iary2 = 9;
+}
+
+message Check_Material_Reply{
+    string rtncode = 1;
+    string rtnmesg = 2;
+    string bomcnt = 3;
+    repeated bom_a oary = 4;
+    string rtnmtrlcnt = 5;
+    repeated rtn_mtrl_a oary2 = 6;
+}
+
+message material_a{
+    string barcode = 1;
+    string mtrlproductid = 2;
+    string quantity = 3;
+}
+
+message bom_a{
+    string mtrlproductid = 1;
+    string mtrlproductdsc = 2;
+    string mtrlcate = 3;
+    string planqty = 4;
+    string mtrlunit = 5;
+    string spcfymtrllotid = 6;
+    string ext1 = 7;    
+    string ext2 = 8;
+    string ext3 = 9;
+    string ext4 = 10;
+    string ext5 = 11;
+    string parentid = 12;    
+}
+
+message rtn_mtrl_a{
+    string rtncode = 1;
+    string rtnmesg = 2;
+    string mtrllotid = 3;
+    string mtrlproductid = 4;
+}

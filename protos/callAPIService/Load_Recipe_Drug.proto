@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+package callAPIService;
+
+message Load_Recipe_Drug_Request{    
+    string bayid = 1;
+    string prepstartdate = 2;
+    string prependdate = 3;
+    string needorderflag = 4;
+    string preptype = 5;
+}
+
+message Load_Recipe_Drug_Reply{
+    string rtncode = 1;
+    string rtnmesg = 2;
+    string lotarycnt = 3;
+    repeated aplrsvpr_a oary = 4;   //aplrsvpr 
+    string bomcnt = 5;
+    repeated aplprdbm_a oary1 = 6;  //aplprdbm oary1
+    string mtrlcnt = 7;
+    repeated bom oary2 = 8;         //aplprdbm oary1.oary2 (藥包的bom)
+    string ordercnt = 9;
+    repeated apmeqrsv_a oary3 = 10; //apmeqrsv oary 工單資訊
+}
+
+//aplrsvpr
+message aplrsvpr_a{
+    string lotid = 1;
+    string lotstat = 2;
+    string nxopeno = 3;
+    string mtrlproductid = 4;
+    string preptype = 5;
+    string prepstat = 6;
+    string prepdate = 7;
+    string prepseqno = 8;
+    string resvdate = 9;
+    string resvshiftseq = 10;
+    string claimdate = 11;
+    string claimtime = 12;
+    string claimuser = 13;
+    string nxopeid = 14;
+    string nxopever = 15;
+    string spltid = 16;
+    string resveqptid = 17;
+    string shtcnt = 18;
+    string readyshtcnt = 19;
+    string productid = 20;
+    string eccode = 21;
+    string mainrouteid = 22;
+    string mainroutever = 23;
+    string cropeno = 24;
+    string lineid = 25;
+}
+
+//aplprdbm oary1
+message aplprdbm_a{
+    string ope_id = 1;
+    string ope_ver = 2;
+    string bom_id = 3;
+}
+
+//aplprdbm oary1.oary2
+message bom{
+    string mtrlproductid = 1;
+    string mtrlproductdsc = 2;
+    string mtrlcate = 3;
+    string planqty = 4;
+    string mtrlunit = 5;
+    string spcfymtrllotid = 6;
+    string ext1 = 7;    
+    string ext2 = 8;
+    string ext3 = 9;
+    string ext4 = 10;
+    string ext5 = 11;
+    string parentid = 12;  
+    string oary4cnt = 13;
+    repeated bom2 oary4 = 14;
+}
+
+message bom2{
+    string mtrlproductid = 1;
+    string mtrlproductdsc = 2;
+    string mtrlcate = 3;
+    string planqty = 4;
+    string mtrlunit = 5;
+    string spcfymtrllotid = 6;
+    string ext1 = 7;    
+    string ext2 = 8;
+    string ext3 = 9;
+    string ext4 = 10;
+    string ext5 = 11;
+    string parentid = 12;  
+}
+
+//apmeqrsv oary
+message apmeqrsv_a{
+    string lotid = 1;
+    string nxopeno = 2;
+    string nxopeid = 3;    
+    string nxopever = 4;
+    string spltid = 5;
+    string resveqptid = 6;
+    string lotstat = 7;
+    string resvdate = 8;
+    string resvshiftseq = 9;
+    string resvcomment = 10;
+    string planoptweight = 11;
+    string moveoutweight = 12;
+    string shtcnt = 13;
+    string crshtcnt = 14;
+    string runflag  = 15;
+    string productid = 16;
+    string eccode = 17;
+    string routeid = 18;
+    string routever = 19;
+    string cropeno = 20;
+    string recipeid = 21;
+    string inshtcnt = 22;
+    string stdldtime = 23;
+    string manopetime = 24;
+    string piece = 25;
+    string openoflag = 26; 
+    string key = 27;
+    string type = 28;
+}
